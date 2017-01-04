@@ -3,9 +3,12 @@
 #include "../include/SDL/SDL_image.h"
 
 #include "display.h"
+#include "game.h"
+
 #include "snake.h"
 
-void displaySnake(SDL_Surface* screen, Snake *snake)
+
+void displaySnake(SDL_Surface* screen, Snake* snake)
 {
     LargeSprite snakeHead, snakeTail, snakeBody;
 
@@ -84,27 +87,6 @@ void displaySnake(SDL_Surface* screen, Snake *snake)
     destroyLargeSprite(&snakeTail);
 }
 
-void displayMap(SDL_Surface* screen, Map levelMap[TAILLEX][TAILLEY])
-{
-    Sprite wall, fruit, background;
-    setSprite(&wall, "texture/brickWall.png");
-    setSprite(&fruit, "texture/fruit.png");
-    setSprite(&background, "texture/background.png");
-    int x, y;
-
-    for(x=0;x<TAILLEX;x++){
-        for(y=0;y<TAILLEY;y++){
-            displaySprite(screen, &background, x*TAILLESPRITE, y*TAILLESPRITE);
-            if(levelMap[x][y]==MUR)
-                displaySprite(screen, &wall, x*TAILLESPRITE, y*TAILLESPRITE);
-            if(levelMap[x][y]==FRUIT)
-                displaySprite(screen, &fruit, x*TAILLESPRITE, y*TAILLESPRITE);
-        }
-    }
-    destroySprite(&wall);
-    destroySprite(&fruit);
-}
-
 //fonction de callback pour la SDL
 Uint32 deplacement_snake(Uint32 intervalle, void* temp)
 {
@@ -158,60 +140,4 @@ Uint32 deplacement_snake(Uint32 intervalle, void* temp)
     //------DEPLACEMENT_SERPENT------
 
     return intervalle;
-}
-
-//genere un nouveau fruit sur une case vide
-void generation_fruit(Game *game)
-{
-    int fruit=0, fruit_x, fruit_y;
-    int i;
-    while(fruit==0){
-        fruit_x=rand()%TAILLEX;
-        fruit_y=rand()%TAILLEY;
-        if(game->levelMap[fruit_x][fruit_y]==VIDE){
-            fruit=1;
-        }
-        for(i=0;i<game->snake.taille;i++){
-            if(game->snake.snake[i].x == fruit_x &&game->snake.snake[i].y == fruit_y){
-                fruit = 0;
-                break;
-            }
-        }
-    }
-    game->levelMap[fruit_x][fruit_y]=FRUIT;
-}
-
-void setupGame(Game* game)
-{
-    int x, y, dir;
-    //dir = rand()%4;
-
-
-    game->snake.snake[0].x = 2;
-    game->snake.snake[0].y = 3;
-    game->snake.snake[1].x = 2;
-    game->snake.snake[1].y = 4;
-    game->snake.snake[2].x = 2;
-    game->snake.snake[2].y = 5;
-
-    game->snake.taille = 3;
-    game->snake.dir = BAS;
-    game->snake.nextdir = BAS;
-
-    game->levelMap[TAILLEX][TAILLEY];
-    generation_fruit(game);
-
-    for(x=0;x<TAILLEX;x++){
-        for(y=0;y<TAILLEY;y++){
-            if(x==0 || x==TAILLEX-1 || y==0 || y==TAILLEY-1)
-                game->levelMap[x][y] = MUR;
-            else
-                game->levelMap[x][y] = VIDE;
-        }
-    }
-
-    if(game->multiplayer==1){
-    }
-
-    //game->deplacement = SDL_AddTimer(300, deplacement_snake, &game);
 }

@@ -243,27 +243,30 @@
 	"snake.h"
 	"menu.h"
 
-1483554966 source:c:\users\tralomine\desktop\c\snake\src\main.cpp
+1483565666 source:c:\users\tralomine\desktop\c\snake\src\main.cpp
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"time.h"
 	"const.h"
 	"snake.h"
 	"display.h"
+	"menu.h"
+	"game.h"
 
-1483533136 c:\users\tralomine\desktop\c\snake\src\const.h
+1483564428 c:\users\tralomine\desktop\c\snake\src\const.h
 
-1483549021 c:\users\tralomine\desktop\c\snake\src\snake.h
+1483565579 c:\users\tralomine\desktop\c\snake\src\snake.h
 	"snake.c"
 
-1483554982 c:\users\tralomine\desktop\c\snake\src\snake.c
+1483565506 c:\users\tralomine\desktop\c\snake\src\snake.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
 	"display.h"
+	"game.h"
 	"snake.h"
 
-1483545500 c:\users\tralomine\desktop\c\snake\src\display.h
+1483565484 c:\users\tralomine\desktop\c\snake\src\display.h
 	"display.c"
 
 1483554985 c:\users\tralomine\desktop\c\snake\src\display.c
@@ -272,23 +275,25 @@
 	"../include/SDL/SDL_image.h"
 	"display.h"
 
-1483554988 source:c:\users\tralomine\desktop\c\snake\src\menu.c
+1483565540 source:c:\users\tralomine\desktop\c\snake\src\menu.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
 	"const.h"
 	"snake.h"
+	"button.h"
 	"menu.h"
 
-1483544476 c:\users\tralomine\desktop\c\snake\src\menu.h
-	"menu.c"
+1483565543 c:\users\tralomine\desktop\c\snake\src\menu.h
+	"game.h"
 
-1483554988 c:\users\tralomine\desktop\c\snake\src\menu.c
+1483564512 c:\users\tralomine\desktop\c\snake\src\menu.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
 	"const.h"
 	"snake.h"
+	"button.h"
 	"menu.h"
 
 1325738639 c:\users\tralomine\desktop\c\snake\include\sdl\sdl.h
@@ -486,4 +491,28 @@
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
+
+1483564532 source:c:\users\tralomine\desktop\c\snake\src\button.c
+	<stdlib.h>
+	"../include/SDL/SDL.h"
+	"../include/SDL/SDL_image.h"
+	"button.h"
+
+1325814793 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1483564527 c:\users\tralomine\desktop\c\snake\src\button.h
+
+1483566235 c:\users\tralomine\desktop\c\snake\src\game.h
+	"game.c"
+
+1483565869 c:\users\tralomine\desktop\c\snake\src\game.c
+	<stdlib.h>
+	"../include/SDL/SDL.h"
+	"../include/SDL/SDL_image.h"
+	"snake.h"
+	"display.h"
+	"game.h"
 

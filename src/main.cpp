@@ -7,6 +7,8 @@
 #include "const.h"
 #include "snake.h"
 #include "display.h"
+#include "menu.h"
+#include "game.h"
 
 
 int main ( int argc, char** argv )
@@ -27,17 +29,14 @@ int main ( int argc, char** argv )
         printf("Unable to set %ix%i video: %s\n", LARGEUR, HAUTEUR, SDL_GetError());
         return 1;}
 
-    setupGame(&game);
-
-    SDL_Event event;
     // program main loop
     bool done = false;
     while (!done)
     {
         // message processing loop
-        SDL_PollEvent(&event);
+        SDL_PollEvent(&(game.event));
         // check for messages
-        switch (event.type)
+        switch (game.event.type)
         {
             // exit if the window is closed
             case SDL_QUIT:
@@ -48,49 +47,18 @@ int main ( int argc, char** argv )
             case SDL_KEYDOWN:
             {
                 // quitte si on appuie sur ECHAP
-                if (event.key.keysym.sym == SDLK_ESCAPE)
+                if (game.event.key.keysym.sym == SDLK_ESCAPE)
                     done = true;
-
-                //si il peux tourner, il se prépare a tourner
-                if(game.snake.dir == HAUT || game.snake.dir == BAS){
-                    if(event.key.keysym.sym == SDLK_a) //'a' a la place de 'q' et 'w' a la place de 'z' parce que qwerty
-                        game.snake.nextdir = GAUCHE;
-                    if(event.key.keysym.sym == SDLK_d)
-                        game.snake.nextdir = DROITE;
-                }
-                if(game.snake.dir == GAUCHE || game.snake.dir == DROITE){
-                    if(event.key.keysym.sym == SDLK_w)
-                        game.snake.nextdir = BAS;
-                    if(event.key.keysym.sym == SDLK_s)
-                        game.snake.nextdir = HAUT;
-                }
                 break;
             }
         } // end switch
 
-        // DEBUT DESSIN
 
-        displayMap(game.screen, game.levelMap);
-        displaySnake(game.screen, &(game.snake));
+        //menu(&game);
+        setupGame(&game);
+        int speed = 400;
+        play(&game);
 
-
-        if(game.collision == 1){
-            game.collision = 0;
-            break;
-        }
-
-        if(game.collision == 2){
-            game.collision = 0;
-            generation_fruit(&game);
-        }
-
-//        if(SDL_GetTicks()>10000) //s'arrete au bout de x temps
-//            break;
-
-        // FIN DESSIN
-
-        // Refresh l'écran
-        SDL_Flip(game.screen);
     } // end main loop
 
     SDL_RemoveTimer(game.deplacement);

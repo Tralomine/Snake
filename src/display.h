@@ -12,10 +12,10 @@ typedef struct{
     int nbr_pics, current;
 }LargeSprite;
 
-void setSprite(Sprite* sprite, char* fileName);
+void setSprite(Sprite* sprite, char* file);
 void displaySprite(SDL_Surface* screen, Sprite* sprite, int x, int y);
 
-//void setLargeSprite(LargeSprite* sprite, char* fileName, int current);
+void setLargeSprite(LargeSprite* sprite, char* file, int nbr_pics, int current);
 void changeLargeSprite(LargeSprite* sprite, int current);
 void displayLargeSprite(SDL_Surface* screen, LargeSprite* sprite, int x, int y);
 

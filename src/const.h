@@ -11,4 +11,6 @@
 
 #define TAILLE_SNAKE_MAX 999
 
+typedef enum {FALSE, TRUE} Bool;
+
 #endif // CONST_H_INCLUDED
