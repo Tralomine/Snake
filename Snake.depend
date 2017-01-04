@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1483473016 source:c:\users\tralomine\desktop\c\snake\main.cpp
+1483532746 source:c:\users\tralomine\desktop\c\snake\main.cpp
 	<stdlib.h>
 	<SDL/SDL.h>
+	"time.h"
 	"const.h"
 	"snake.h"
 	"display.h"
@@ -196,12 +197,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1483484849 c:\users\tralomine\desktop\c\snake\const.h
+1483514390 c:\users\tralomine\desktop\c\snake\const.h
 
-1483484741 c:\users\tralomine\desktop\c\snake\display.h
+1483514787 c:\users\tralomine\desktop\c\snake\display.h
 	"display.c"
 
-1483480104 c:\users\tralomine\desktop\c\snake\display.c
+1483515647 c:\users\tralomine\desktop\c\snake\display.c
 	<stdlib.h>
 	<SDL/SDL.h>
 	<SDL/SDL_image.h>
@@ -213,10 +214,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1483480060 c:\users\tralomine\desktop\c\snake\snake.h
+1483530349 c:\users\tralomine\desktop\c\snake\snake.h
 	"snake.c"
 
-1483484855 c:\users\tralomine\desktop\c\snake\snake.c
+1483532397 c:\users\tralomine\desktop\c\snake\snake.c
 	<stdlib.h>
 	<SDL/SDL.h>
 	<SDL/SDL_image.h>
