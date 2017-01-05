@@ -20,6 +20,7 @@ int main ( int argc, char** argv )
         printf( "Unable to init SDL: %s\n", SDL_GetError() );
         return 1;}
 
+    TTF_Init();
 
     Game game;
 
@@ -30,7 +31,7 @@ int main ( int argc, char** argv )
         return 1;}
 
     // program main loop
-    bool done = false;
+    Bool done = FALSE;
     while (!done)
     {
         // message processing loop
@@ -40,7 +41,7 @@ int main ( int argc, char** argv )
         {
             // exit if the window is closed
             case SDL_QUIT:
-                done = true;
+                done = TRUE;
                 break;
 
             // check for keypresses
@@ -48,18 +49,20 @@ int main ( int argc, char** argv )
             {
                 // quitte si on appuie sur ECHAP
                 if (game.event.key.keysym.sym == SDLK_ESCAPE)
-                    done = true;
+                    done = TRUE;
                 break;
             }
         } // end switch
 
 
-        //menu(&game);
-        setupGame(&game);
-        int speed = 400;
-        play(&game);
+        menu(&game);
+        //SDL_Delay(1500); //j'arette juste pour qu'on puisse voir notre score x)
+
 
     } // end main loop
+
+
+    TTF_CloseFont(game.font);
 
     SDL_RemoveTimer(game.deplacement);
 

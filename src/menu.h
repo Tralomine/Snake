@@ -1,13 +1,6 @@
-#ifndef MENU_H_INCLUDED
-#define MENU_H_INCLUDED
-
-
+#pragma once
 
 #include "game.h"
+
 void menu(Game* game);
-void levelMenu(Game *game);
-
-
-//#include "menu.c"
-
-#endif // MENU_H_INCLUDED
+void levelMenu(Game* game);

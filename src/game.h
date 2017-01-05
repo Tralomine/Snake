@@ -1,6 +1,7 @@
-#ifndef GAME_H_INCLUDED
-#define GAME_H_INCLUDED
+#pragma once
 
+#include "../include/SDL/SDL_ttf.h"
+#include "snake.h"
 
 typedef struct{
     Snake snake, snake2;
@@ -12,15 +13,13 @@ typedef struct{
     SDL_Surface* screen;
     SDL_TimerID deplacement;
     SDL_Event event;
+    TTF_Font* font;
+    SDL_Color black;
 }Game;
 
 
 void displayMap(Game* game);
 
 void play(Game* game);
-void setupGame(Game *game);
-void generation_fruit(Game *game);
-
-#include "game.c"
-
-#endif // GAME_H_INCLUDED
+void setupGame(Game* game);
+void generation_fruit(Game* game);

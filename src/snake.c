@@ -2,6 +2,7 @@
 #include "../include/SDL/SDL.h"
 #include "../include/SDL/SDL_image.h"
 
+#include "const.h"
 #include "display.h"
 #include "game.h"
 
@@ -95,6 +96,12 @@ Uint32 deplacement_snake(Uint32 intervalle, void* temp)
     int inc_x=0, inc_y=0, i;
     game->collision = 0;
 
+    //on agrandit sa taille si il doit grandir
+    if(game->snake.growWait>0){
+        game->snake.taille++;
+        game->snake.growWait--;
+    }
+
     if(game->snake.dir == HAUT)
         inc_y++;
     if(game->snake.dir == BAS)
@@ -115,7 +122,6 @@ Uint32 deplacement_snake(Uint32 intervalle, void* temp)
 
     //fruits
     if(game->levelMap[game->snake.snake[0].x+inc_x][game->snake.snake[0].y+inc_y] == FRUIT){
-        game->snake.taille++;       //GRANDIT si tete snake collision fruit
         game->collision = 2;        //on lui dit qu'il a croisé un fruit
         game->levelMap[game->snake.snake[0].x+inc_x][game->snake.snake[0].y+inc_y] = VIDE; //on eneve le fruit
     }

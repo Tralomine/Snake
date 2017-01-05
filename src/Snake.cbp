@@ -41,6 +41,7 @@
 			<Add library="winmm" />
 			<Add library="dxguid" />
 			<Add library="SDL_image" />
+			<Add library="SDL_ttf" />
 			<Add directory="../lib" />
 		</Linker>
 		<Unit filename="button.c">

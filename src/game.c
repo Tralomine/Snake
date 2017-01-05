@@ -55,6 +55,14 @@ void play(Game* game)
         displayMap(game);
         displaySnake(game->screen, &(game->snake));
 
+        char scoreTexte[255];
+        sprintf(scoreTexte, "Score : %i", game->score);
+        SDL_Surface* texte = TTF_RenderText_Blended(game->font, scoreTexte, game->black);
+        SDL_Rect pos;
+        pos.x = (LARGEUR-texte->w)/2;
+        pos.y = HAUTEUR-64;
+        SDL_BlitSurface(texte, NULL, game->screen, &pos);
+
 
         if(game->collision == 1){
             game->collision = 0;
@@ -62,6 +70,15 @@ void play(Game* game)
         }
 
         if(game->collision == 2){
+            if(game->currentFruit==5){  //pasteque
+                game->score+=3;
+                game->snake.growWait+=3;
+            }else if(game->currentFruit==0 && game->snake.taille>3){    //cerise
+                game->snake.taille -= 2;
+            }else{
+                game->snake.growWait++;
+            }
+            game->score++;
             game->collision = 0;
             game->currentFruit = rand()%6;
             generation_fruit(game);
@@ -115,7 +132,7 @@ void displayMap(Game* game)
 
 
 //genere un nouveau fruit sur une case vide
-void generation_fruit(Game *game)
+void generation_fruit(Game* game)
 {
     int fruit=0, fruit_x, fruit_y;
     int i;
@@ -167,10 +184,9 @@ void setupGame(Game* game)
     game->snake.snake[0].y = TAILLEY/2;
     game->snake.snake[1].x = TAILLEX/2+x;
     game->snake.snake[1].y = TAILLEY/2+y;
-    game->snake.snake[2].x = TAILLEX/2+2*x;
-    game->snake.snake[2].y = TAILLEY/2+2*y;
 
-    game->snake.taille = 3;
+    game->snake.taille = 2;
+    game->snake.growWait = 2;
 
     game->levelMap[TAILLEX][TAILLEY];
 
@@ -184,6 +200,13 @@ void setupGame(Game* game)
                 game->levelMap[x][y] = VIDE;
         }
     }
+
+    game->black.r = 0;
+    game->black.g = 0;
+    game->black.b = 0;
+    game->font = TTF_OpenFont("texture/font/FiraSans-Medium.otf",56);
+
+    game->score = 0;
 
     generation_fruit(game);
 

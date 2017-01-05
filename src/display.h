@@ -1,5 +1,4 @@
-#ifndef DISPLAY_H_INCLUDED
-#define DISPLAY_H_INCLUDED
+#pragma once
 
 typedef struct{
     SDL_Surface *pic;
@@ -22,7 +21,3 @@ void displayLargeSprite(SDL_Surface* screen, LargeSprite* sprite, int x, int y);
 void destroySprite(Sprite* sprite);
 void destroyLargeSprite(LargeSprite* sprite);
 
-
-#include "display.c"
-
-#endif // DISPLAY_H_INCLUDED

@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include "../include/SDL/SDL.h"
 #include "../include/SDL/SDL_image.h"
+#include "../include/SDL/SDL_ttf.h"
 
+#include "const.h"
 #include "display.h"
 
 void setSprite(Sprite* sprite, char* file)
@@ -51,3 +53,4 @@ void destroyLargeSprite(LargeSprite* sprite)
 {
     SDL_FreeSurface(sprite->pic);
 }
+

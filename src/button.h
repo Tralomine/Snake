@@ -1,5 +1,4 @@
-#ifndef BUTTON_H_INCLUDED
-#define BUTTON_H_INCLUDED
+#pragma once
 
 typedef struct Button Button;
 struct Button
@@ -15,7 +14,3 @@ void setButton(Button* button, const char* file, int height, int width, int x, i
 void displayButton(Button button, SDL_Surface *screen);
 int buttonClicked(Button* button, SDL_Event* event);
 void destroyButton(Button* button);
-
-//#include "button.c"
-
-#endif // BUTTON_H_INCLUDED

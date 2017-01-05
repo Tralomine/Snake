@@ -1,5 +1,4 @@
-#ifndef CONST_H_INCLUDED
-#define CONST_H_INCLUDED
+#pragma once
 
 #define TAILLEX 16
 #define TAILLEY 12
@@ -12,5 +11,3 @@
 #define TAILLE_SNAKE_MAX 999
 
 typedef enum {FALSE, TRUE} Bool;
-
-#endif // CONST_H_INCLUDED
