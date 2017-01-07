@@ -12,7 +12,7 @@ void setSprite(Sprite* sprite, char* file)
     sprite->pic = NULL;
     sprite->pic = IMG_Load(file);
     if(!sprite->pic){
-        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError);
+        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError());
         exit(EXIT_FAILURE);
     }
 }
@@ -38,7 +38,7 @@ LargeSprite setLargeSprite(char* file, int nbr_pics, int current)
     sprite.pic = NULL;
     sprite.pic = IMG_Load(file);
     if(!sprite.pic){
-        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError);
+        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError());
         exit(EXIT_FAILURE);
     }
     sprite.nbr_pics = nbr_pics;

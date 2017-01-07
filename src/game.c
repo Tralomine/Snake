@@ -35,18 +35,15 @@ Game play(Game game)
         SDL_PollEvent(&event);
         switch (event.type)
         {
-            // exit if the window is closed
             case SDL_QUIT:
                 done = TRUE;
                 break;
-
-            // check for keypresses
             case SDL_KEYDOWN:
             {
                 int touche = event.key.keysym.sym;
-                // quitte si on appuie sur ECHAP
+
                 if (touche == SDLK_ESCAPE)
-                    done = TRUE;
+                    done = TRUE;// quitte si on appuie sur ECHAP
 
                 //si il peux tourner, il se prépare a tourner
                 if(game.snake[0].dir == HAUT || game.snake[0].dir == BAS){
@@ -167,16 +164,13 @@ Game playMulti(Game game)
     {
         SDL_PollEvent(&event);
         switch (event.type){
-            // exit if the window is closed
             case SDL_QUIT:
                 done = TRUE;
                 break;
-
-            // check for keypresses
             case SDL_KEYDOWN:
             {
                 int touche = event.key.keysym.sym;
-                // quitte si on appuie sur ECHAP
+
                 if (touche == SDLK_ESCAPE)
                     done = TRUE;
 
@@ -242,7 +236,7 @@ Game playMulti(Game game)
             interval2 = interval1;
         }
 
-        // Refresh l'écran
+        // Refresh l'ecran
         SDL_Flip(game.screen);
     }
 

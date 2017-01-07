@@ -10,7 +10,7 @@ void setButton(Button* button, const char* file, int x, int y)
     button->surface = NULL;
     button->surface = IMG_Load(file);
     if(!button->surface){
-        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError);
+        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError());
         exit(EXIT_FAILURE);
     }
     button->pos.h = button->surface->h;
@@ -25,12 +25,11 @@ void displayButton(Button button, SDL_Surface *screen)
     SDL_BlitSurface(button.surface, NULL, screen, &button.pos);
 }
 
-///renvoie si le bouton a été clické ou pas, et par quel click
+///renvoie si le bouton a été clicke ou pas, et par quel click
 int buttonClicked(Button* button, SDL_Event* event)
 {
-    if(event->type==SDL_MOUSEBUTTONUP)
-    {
-        if((event->button.x > button->pos.x && event->button.x < button->pos.x + button->pos.w)&&   //on test si le click était bien sur le bouton
+    if(event->type==SDL_MOUSEBUTTONUP){
+        if((event->button.x > button->pos.x && event->button.x < button->pos.x + button->pos.w)&&   //on test si le click etait bien sur le bouton
             (event->button.y > button->pos.y && event->button.y < button->pos.y + button->pos.h))
                 return event->button.button; //on renvoie le click utilisé
     }

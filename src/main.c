@@ -3,7 +3,7 @@
 #include "../include/SDL/SDL.h"
 #include "../include/SDL/SDL_image.h"
 
-#include "time.h"
+#include <time.h>
 
 #include "const.h"
 #include "snake.h"
@@ -14,7 +14,7 @@
 
 int main ( int argc, char** argv )
 {
-    srand(time(NULL)); //on initialize l'aléatoire aléatoirement
+    srand(time(NULL)); //on initialize l'aleatoire aleatoirement
 
     // initialisation de la SDL
     if ( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER ) < 0 ){
@@ -23,10 +23,10 @@ int main ( int argc, char** argv )
 
     TTF_Init();
 
-    //définition du nom de la fenêtre
+    //definition du nom de la fenetre
     SDL_WM_SetCaption("Snake", NULL);
 
-    //définition d'un icone pour le snake
+    //definition d'un icone pour le snake
     SDL_Surface* icon = (SDL_Surface*)IMG_Load("texture/icon.ico");
     SDL_WM_SetIcon(icon, NULL);
     SDL_FreeSurface(icon);

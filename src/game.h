@@ -8,7 +8,7 @@ typedef struct{
     Snake snake[2];    //serpent et serpent multijoueur
     Map levelMap[TAILLEX][TAILLEY];     //briques et fruits
     int score, level, time;       //score, numéro du niveaux en cour et temps restant
-    int currentFruit, speed;    //type du fruit affiché et vitesse du serpent
+    int currentFruit, speed;    //type du fruit affiche et vitesse du serpent
     Bool multiplayer;       //mode de jeu
     SDL_Surface* screen;    //endroit ou on affiche le jeu
     TTF_Font* font;         //police d'écriture pour le score

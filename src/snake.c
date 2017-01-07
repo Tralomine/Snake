@@ -8,7 +8,7 @@
 
 #include "snake.h"
 
-///affiche le snake sur l'écran
+///affiche le snake sur l'ecran
 void displaySnake(SDL_Surface* screen, Snake* snake, int numero)
 {
     LargeSprite snakeHead, snakeTail, snakeBody;
@@ -38,12 +38,12 @@ void displaySnake(SDL_Surface* screen, Snake* snake, int numero)
             changeLargeSprite(&snakeHead, 1);
             break;
     }
-    displayLargeSprite(screen, &snakeHead, snake->corp[0].x*TAILLESPRITE, snake->corp[0].y*TAILLESPRITE); //la tête
+    displayLargeSprite(screen, &snakeHead, snake->corp[0].x*TAILLESPRITE, snake->corp[0].y*TAILLESPRITE); //la tete
     int i;
     for(i=1;i<snake->taille-1;i++){
         if(snake->corp[i].y == snake->corp[i-1].y-1){
             if(snake->corp[i].y == snake->corp[i+1].y+1)      //en fonction de la position des segments precedents
-                changeLargeSprite(&snakeBody, 0);               //et suivants, on n'affiche pas les mêmes sprites
+                changeLargeSprite(&snakeBody, 0);               //et suivants, on n'affiche pas les memes sprites
             if(snake->corp[i].x == snake->corp[i+1].x-1)      //pour que le serpent reste en un seul morceau
                 changeLargeSprite(&snakeBody, 7);               //et qu'il reste coherent sur toute la longueur
             if(snake->corp[i].x == snake->corp[i+1].x+1)
@@ -70,7 +70,7 @@ void displaySnake(SDL_Surface* screen, Snake* snake, int numero)
             if(snake->corp[i].y == snake->corp[i+1].y+1)
                 changeLargeSprite(&snakeBody, 9);}
 
-        displayLargeSprite(screen, &snakeBody, snake->corp[i].x*TAILLESPRITE, snake->corp[i].y*TAILLESPRITE); //le corp entre la queue et la tête
+        displayLargeSprite(screen, &snakeBody, snake->corp[i].x*TAILLESPRITE, snake->corp[i].y*TAILLESPRITE); //le corp entre la queue et la tete
     }
 
     if(snake->corp[snake->taille-1].y == snake->corp[snake->taille-2].y+1)
@@ -121,11 +121,11 @@ void deplacement_snake(void* temp)
             inc_x--;
 
         //------DEPLACEMENT_SERPENT------
-        //on décale toutes les cases d'un vers l'avant
+        //on decale toutes les cases d'un vers l'avant
         for(j=game->snake[i].taille-1;j>0;j--){
             game->snake[i].corp[j] = game->snake[i].corp[j-1];
         }
-        //on decale sa tête
+        //on decale sa tete
         game->snake[i].corp[0].x+=inc_x;
         game->snake[i].corp[0].y+=inc_y;
 
@@ -168,7 +168,7 @@ void deplacement_snake(void* temp)
         //fruits
         if(game->levelMap[game->snake[i].corp[0].x][game->snake[i].corp[0].y] == FRUIT){
             game->snake[i].collision = 2;        //on lui dit qu'il a croisé un fruit
-            game->levelMap[game->snake[i].corp[0].x][game->snake[i].corp[0].y] = VIDE; //on eneve le fruit
+            game->levelMap[game->snake[i].corp[0].x][game->snake[i].corp[0].y] = VIDE; //on enleve le fruit
         }
     }
 }

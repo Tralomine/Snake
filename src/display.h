@@ -7,7 +7,7 @@ typedef struct{
 
 typedef struct{
     SDL_Surface *pic;
-    SDL_Rect pos, mask;             //plusieurs sprites sur la même image: on en prend juste 1
+    SDL_Rect pos, mask;             //plusieurs sprites sur la meme image: on en prend juste 1
     int nbr_pics, current;
 }LargeSprite;
 

@@ -10,7 +10,7 @@
 
 #include "menu.h"
 
-///gère le choix entre les différents types de jeux/les crédits/l'aide
+///gere le choix entre les differents types de jeux/les credits/l'aide
 Game menu(Game game)
 {
     Button singlePlayer, multiPlayer, help, credits, quit;
@@ -22,7 +22,7 @@ Game menu(Game game)
 
     SDL_Surface* background = IMG_Load("texture/screen/background_menu.png");
 
-    Bool done = FALSE; // DONE => Permet l'arret de la boucle infinie
+    Bool done = FALSE; // done => Permet l'arret de la boucle infinie
     SDL_Event event;
     while(!done)
     {
@@ -35,7 +35,6 @@ Game menu(Game game)
         displayButton(quit, game.screen);
         SDL_Flip(game.screen);
 
-        //event checking
         SDL_WaitEvent(&event);
 
         //Gestion click
@@ -47,7 +46,7 @@ Game menu(Game game)
             case SDL_QUIT:      //on quitte si on ferme la fenetre
                 done = TRUE;
                 break;
-            case SDL_KEYDOWN:   // quitte si on appuie sur ECHAP
+            case SDL_KEYDOWN:   //on quitte si on appuie sur ECHAP
                 if (event.key.keysym.sym == SDLK_ESCAPE)
                     done = TRUE;
                 break;
@@ -87,10 +86,8 @@ Game menu(Game game)
 
     return game;
 }
-//----------------GENERATION MENU PRINCIPAL & GESTION CLICK -----------------
 
-
-///affiche le menu de choix entre les différents niveaux solo
+///affiche le menu de choix entre les differents niveaux solo
 Game levelMenu(Game game)
 {
     pauseButton(game.screen, "texture/screen/load_sing.png", "texture/play.png");
@@ -112,13 +109,13 @@ Game levelMenu(Game game)
 
     SDL_BlitSurface(background, NULL, game.screen, NULL);
     SDL_BlitSurface(backMenu.surface, NULL, game.screen, &backMenu.pos);
-    for(x=0;x<4;x++){SDL_BlitSurface(levels[x].surface, NULL, game.screen, &levels[x].pos);}
+    for(x=0;x<4;x++){
+        SDL_BlitSurface(levels[x].surface, NULL, game.screen, &levels[x].pos);}
     SDL_BlitSurface(infinity.surface, NULL, game.screen, &infinity.pos);
 
     SDL_Flip(game.screen);
 
-
-    Bool done = FALSE, retourMenu = TRUE;  //si retourMenu == True, on ne joue pas de level
+    Bool done = FALSE, retourMenu = TRUE;  //si retourMenu == TRUE, on ne joue pas de level
     SDL_Event event;
     while(!done){
         SDL_WaitEvent(&event);
@@ -147,12 +144,14 @@ Game levelMenu(Game game)
         }
     }
 
+    destroyButton(&backMenu);
+    for(x=0;x<4;x++){
+        destroyButton(&levels[x]);}
+    destroyButton(&infinity);
+
     if(!retourMenu)
         game = play(game);
 
-    destroyButton(&backMenu);
-    for(x=0;x<4;x++){destroyButton(&levels[x]);}
-    destroyButton(&infinity);
     return game;
 }
 
@@ -160,7 +159,7 @@ void eatButton(SDL_Surface* screen, int y)
 {
     SDL_Surface* eater = IMG_Load("texture/eater.png");
     SDL_Surface* temp = SDL_CreateRGBSurface(0, LARGEUR, HAUTEUR, 32, 0, 0, 0, 0);
-    SDL_Rect eaterPos;  //Position serpent menu "mangeur" de bouton
+    SDL_Rect eaterPos;
     int x;
 
     SDL_BlitSurface(screen, NULL, temp, NULL);

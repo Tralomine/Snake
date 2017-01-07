@@ -20,4 +20,4 @@ typedef struct{
 
 void displaySnake(SDL_Surface* screen, Snake* snake, int numero);
 void deplacement_snake(void* temp);
-        //on est obligé de mettre un pointeur sur vide car on ne peux pas inclure game.h dans snake.h et snake.h dans game.h
+        //on est oblige de mettre un pointeur sur vide car on ne peux pas inclure game.h dans snake.h et snake.h dans game.h
