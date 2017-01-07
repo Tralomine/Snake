@@ -9,7 +9,12 @@
 
 void setSprite(Sprite* sprite, char* file)
 {
+    sprite->pic = NULL;
     sprite->pic = IMG_Load(file);
+    if(!sprite->pic){
+        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError);
+        exit(EXIT_FAILURE);
+    }
 }
 
 void displaySprite(SDL_Surface* screen, Sprite* sprite, int x, int y)
@@ -29,7 +34,13 @@ void destroySprite(Sprite* sprite)
 LargeSprite setLargeSprite(char* file, int nbr_pics, int current)
 {
     LargeSprite sprite;
+
+    sprite.pic = NULL;
     sprite.pic = IMG_Load(file);
+    if(!sprite.pic){
+        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError);
+        exit(EXIT_FAILURE);
+    }
     sprite.nbr_pics = nbr_pics;
     sprite.current = current;
     sprite.mask.w = TAILLESPRITE;

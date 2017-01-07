@@ -7,7 +7,12 @@
 ///creation du bouton
 void setButton(Button* button, const char* file, int x, int y)
 {
+    button->surface = NULL;
     button->surface = IMG_Load(file);
+    if(!button->surface){
+        fprintf(stderr, "impossible de charger l'image \"%s\" : %s", file, SDL_GetError);
+        exit(EXIT_FAILURE);
+    }
     button->pos.h = button->surface->h;
     button->pos.w = button->surface->w;
     button->pos.x = x;

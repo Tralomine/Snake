@@ -253,9 +253,9 @@
 	"menu.h"
 	"game.h"
 
-1483696974 c:\users\tralomine\desktop\c\snake\src\const.h
+1483804981 c:\users\tralomine\desktop\c\snake\src\const.h
 
-1483798432 c:\users\tralomine\desktop\c\snake\src\snake.h
+1483804981 c:\users\tralomine\desktop\c\snake\src\snake.h
 	"const.h"
 
 1483602445 c:\users\tralomine\desktop\c\snake\src\snake.c
@@ -267,7 +267,7 @@
 	"game.h"
 	"snake.h"
 
-1483791417 c:\users\tralomine\desktop\c\snake\src\display.h
+1483804981 c:\users\tralomine\desktop\c\snake\src\display.h
 
 1483602780 c:\users\tralomine\desktop\c\snake\src\display.c
 	<stdlib.h>
@@ -277,7 +277,7 @@
 	"const.h"
 	"display.h"
 
-1483801105 source:c:\users\tralomine\desktop\c\snake\src\menu.c
+1483804981 source:c:\users\tralomine\desktop\c\snake\src\menu.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
@@ -288,7 +288,7 @@
 	"display.h"
 	"menu.h"
 
-1483801059 c:\users\tralomine\desktop\c\snake\src\menu.h
+1483804981 c:\users\tralomine\desktop\c\snake\src\menu.h
 	"game.h"
 
 1483601993 c:\users\tralomine\desktop\c\snake\src\menu.c
@@ -301,7 +301,7 @@
 	"game.h"
 	"menu.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_audio.h"
@@ -320,14 +320,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_main.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_stdinc.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -353,7 +353,7 @@
 	<stdlib.h>
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_config.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_config.h
 	"SDL_platform.h"
 	"SDL_config_dreamcast.h"
 	"SDL_config_macos.h"
@@ -363,16 +363,16 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_platform.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_platform.h
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_config_win32.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_config_win32.h
 	"SDL_platform.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\begin_code.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\begin_code.h
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\close_code.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\close_code.h
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_audio.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -382,24 +382,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_error.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_endian.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_mutex.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_thread.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_mutex.h"
@@ -407,24 +407,24 @@
 	<process.h>
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_rwops.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_cdrom.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_cdrom.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_cpuinfo.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_events.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_active.h"
@@ -435,82 +435,82 @@
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_active.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_active.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_keyboard.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keysym.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_keysym.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_keysym.h
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_mouse.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_video.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_joystick.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_quit.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_loadso.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_timer.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_version.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_image.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483703578 source:c:\users\tralomine\desktop\c\snake\src\button.c
+1483810040 source:c:\users\tralomine\desktop\c\snake\src\button.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
 	"button.h"
 
-1483604577 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_ttf.h
+1483804981 c:\users\tralomine\desktop\c\snake\include\sdl\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1483696974 c:\users\tralomine\desktop\c\snake\src\button.h
+1483804981 c:\users\tralomine\desktop\c\snake\src\button.h
 
-1483799478 c:\users\tralomine\desktop\c\snake\src\game.h
+1483804981 c:\users\tralomine\desktop\c\snake\src\game.h
 	"../include/SDL/SDL_ttf.h"
 	"snake.h"
 
@@ -528,7 +528,7 @@
 	"../include/SDL/SDL_image.h"
 	"button.h"
 
-1483802966 source:c:\users\tralomine\desktop\c\snake\src\game.c
+1483804981 source:c:\users\tralomine\desktop\c\snake\src\game.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
@@ -547,7 +547,7 @@
 	"display.h"
 	"button.h"
 
-1483799808 source:c:\users\tralomine\desktop\c\snake\src\snake.c
+1483804981 source:c:\users\tralomine\desktop\c\snake\src\snake.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
@@ -556,7 +556,7 @@
 	"game.h"
 	"snake.h"
 
-1483792489 source:c:\users\tralomine\desktop\c\snake\src\main.c
+1483804981 source:c:\users\tralomine\desktop\c\snake\src\main.c
 	<stdlib.h>
 	"../include/SDL/SDL.h"
 	"../include/SDL/SDL_image.h"
