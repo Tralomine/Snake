@@ -2,5 +2,7 @@
 
 #include "game.h"
 
-void menu(Game* game);
-void levelMenu(Game* game);
+Game menu(Game game);
+Game levelMenu(Game game);
+
+void eatButton(SDL_Surface* screen, int y);

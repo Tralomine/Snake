@@ -53,30 +53,23 @@
 		</Unit>
 		<Unit filename="display.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="display.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="display.h" />
 		<Unit filename="game.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="game.h">
-			<Option target="&lt;{~None~}&gt;" />
+		<Unit filename="game.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="main.cpp" />
 		<Unit filename="menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menu.h" />
 		<Unit filename="snake.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="snake.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="snake.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

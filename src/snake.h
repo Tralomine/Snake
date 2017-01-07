@@ -10,11 +10,14 @@ typedef struct{
 }Point;
 
 typedef struct{
-    Point snake[TAILLE_SNAKE_MAX];
+    Point corp[TAILLE_SNAKE_MAX];
     int taille, growWait;
     Direction dir, nextdir;
+    int life;
+    int collision; //stockage de la colision
 }Snake;
 
 
-void displaySnake(SDL_Surface* screen, Snake* snake);
-Uint32 deplacement_snake(Uint32  intervalle, void* temp);
+void displaySnake(SDL_Surface* screen, Snake* snake, int numero);
+void deplacement_snake(void* temp);
+        //on est obligé de mettre un pointeur sur vide car on ne peux pas inclure game.h dans snake.h et snake.h dans game.h

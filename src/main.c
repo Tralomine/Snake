@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 #include "../include/SDL/SDL.h"
+#include "../include/SDL/SDL_image.h"
 
 #include "time.h"
 
@@ -22,6 +23,14 @@ int main ( int argc, char** argv )
 
     TTF_Init();
 
+    //définition du nom de la fenêtre
+    SDL_WM_SetCaption("Snake", NULL);
+
+    //définition d'un icone pour le snake
+    SDL_Surface* icon = (SDL_Surface*)IMG_Load("texture/icon.ico");
+    SDL_WM_SetIcon(icon, NULL);
+    SDL_FreeSurface(icon);
+
     Game game;
 
     // creation d'une fenetre
@@ -30,43 +39,20 @@ int main ( int argc, char** argv )
         printf("Unable to set %ix%i video: %s\n", LARGEUR, HAUTEUR, SDL_GetError());
         return 1;}
 
-    // program main loop
-    Bool done = FALSE;
-    while (!done)
-    {
-        // message processing loop
-        SDL_PollEvent(&(game.event));
-        // check for messages
-        switch (game.event.type)
-        {
-            // exit if the window is closed
-            case SDL_QUIT:
-                done = TRUE;
-                break;
+    //chargement de la police pour afficher le score
+    game.font = TTF_OpenFont("texture/font/medium.otf",56);
+    if(!game.font){
+        fprintf(stderr, "error while loading font : %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
 
-            // check for keypresses
-            case SDL_KEYDOWN:
-            {
-                // quitte si on appuie sur ECHAP
-                if (game.event.key.keysym.sym == SDLK_ESCAPE)
-                    done = TRUE;
-                break;
-            }
-        } // end switch
+    game.color.r = 255;
+    game.color.g = 255;
+    game.color.b = 255;
 
-
-        menu(&game);
-        //SDL_Delay(1500); //j'arette juste pour qu'on puisse voir notre score x)
-
-
-    } // end main loop
-
+    game = menu(game);
 
     TTF_CloseFont(game.font);
 
-    SDL_RemoveTimer(game.deplacement);
-
-    // all is well ;)
-    printf("Exited cleanly\n");
     return 0;
 }

@@ -14,10 +14,13 @@ typedef struct{
 void setSprite(Sprite* sprite, char* file);
 void displaySprite(SDL_Surface* screen, Sprite* sprite, int x, int y);
 
-void setLargeSprite(LargeSprite* sprite, char* file, int nbr_pics, int current);
+LargeSprite setLargeSprite(char* file, int nbr_pics, int current);
 void changeLargeSprite(LargeSprite* sprite, int current);
 void displayLargeSprite(SDL_Surface* screen, LargeSprite* sprite, int x, int y);
 
 void destroySprite(Sprite* sprite);
 void destroyLargeSprite(LargeSprite* sprite);
+
+Bool pauseDoubleButton(SDL_Surface* screen, char* backgroundFile, char* button1file, char* button2file);
+void pauseButton(SDL_Surface* screen, char* backgroundFile, char* buttonFile);
 

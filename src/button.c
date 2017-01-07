@@ -4,23 +4,23 @@
 
 #include "button.h"
 
-//creation du bouton
-void setButton(Button* button, const char* file, int height, int width, int x, int y)
+///creation du bouton
+void setButton(Button* button, const char* file, int x, int y)
 {
     button->surface = IMG_Load(file);
-    button->pos.h = height;
-    button->pos.w = width;
+    button->pos.h = button->surface->h;
+    button->pos.w = button->surface->w;
     button->pos.x = x;
     button->pos.y = y;
 }
 
-//affiche le bouton
+///affiche le bouton
 void displayButton(Button button, SDL_Surface *screen)
 {
-    SDL_BlitSurface(button.surface, NULL, screen, &(button.pos));
+    SDL_BlitSurface(button.surface, NULL, screen, &button.pos);
 }
 
-//renvoie si le bouton a été clické ou pas
+///renvoie si le bouton a été clické ou pas, et par quel click
 int buttonClicked(Button* button, SDL_Event* event)
 {
     if(event->type==SDL_MOUSEBUTTONUP)
@@ -32,8 +32,8 @@ int buttonClicked(Button* button, SDL_Event* event)
     return 0;
 }
 
-//le nom est pas assez explicit ?
-void destroyButton(Button* button)
+//le nom est pas assez explicite ?
+void destroyButton(Button* button)///Libere la memoire occupee par une structure
 {
     SDL_FreeSurface(button->surface);
 }

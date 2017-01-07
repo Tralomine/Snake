@@ -8,14 +8,21 @@
 
 #include "snake.h"
 
-
-void displaySnake(SDL_Surface* screen, Snake* snake)
+///affiche le snake sur l'écran
+void displaySnake(SDL_Surface* screen, Snake* snake, int numero)
 {
     LargeSprite snakeHead, snakeTail, snakeBody;
 
-    setLargeSprite(&snakeHead, "texture/snake_head.png", 4, 0);
-    setLargeSprite(&snakeBody, "texture/snake_body.png", 8, 0);
-    setLargeSprite(&snakeTail, "texture/snake_tail.png", 4, 0);
+    if(numero==1){
+        snakeHead = setLargeSprite("texture/snake_head.png", 4, 0);
+        snakeBody = setLargeSprite("texture/snake_body.png", 8, 0);
+        snakeTail = setLargeSprite("texture/snake_tail.png", 4, 0);
+    }               //on prend une texture différente pour le 2eme serpent en multi
+    if(numero==2){
+        snakeHead = setLargeSprite("texture/snake_head2.png", 4, 0);
+        snakeBody = setLargeSprite("texture/snake_body2.png", 8, 0);
+        snakeTail = setLargeSprite("texture/snake_tail2.png", 4, 0);
+    }
 
     switch(snake->dir){
         case HAUT:
@@ -31,119 +38,137 @@ void displaySnake(SDL_Surface* screen, Snake* snake)
             changeLargeSprite(&snakeHead, 1);
             break;
     }
-    displayLargeSprite(screen, &snakeHead, snake->snake[0].x*TAILLESPRITE, snake->snake[0].y*TAILLESPRITE); //la tête
+    displayLargeSprite(screen, &snakeHead, snake->corp[0].x*TAILLESPRITE, snake->corp[0].y*TAILLESPRITE); //la tête
     int i;
     for(i=1;i<snake->taille-1;i++){
-        if(snake->snake[i].y == snake->snake[i-1].y-1){
-            if(snake->snake[i].y == snake->snake[i+1].y+1)
-                changeLargeSprite(&snakeBody, 0);
-            if(snake->snake[i].x == snake->snake[i+1].x-1)
-                changeLargeSprite(&snakeBody, 7);
-            if(snake->snake[i].x == snake->snake[i+1].x+1)
-                changeLargeSprite(&snakeBody, 8);
-        }
-        if(snake->snake[i].y == snake->snake[i-1].y+1){
-            if(snake->snake[i].y == snake->snake[i+1].y-1)
+        if(snake->corp[i].y == snake->corp[i-1].y-1){
+            if(snake->corp[i].y == snake->corp[i+1].y+1)      //en fonction de la position des segments precedents
+                changeLargeSprite(&snakeBody, 0);               //et suivants, on n'affiche pas les mêmes sprites
+            if(snake->corp[i].x == snake->corp[i+1].x-1)      //pour que le serpent reste en un seul morceau
+                changeLargeSprite(&snakeBody, 7);               //et qu'il reste coherent sur toute la longueur
+            if(snake->corp[i].x == snake->corp[i+1].x+1)
+                changeLargeSprite(&snakeBody, 8);}
+        if(snake->corp[i].y == snake->corp[i-1].y+1){
+            if(snake->corp[i].y == snake->corp[i+1].y-1)
                 changeLargeSprite(&snakeBody, 2);
-            if(snake->snake[i].x == snake->snake[i+1].x-1)
+            if(snake->corp[i].x == snake->corp[i+1].x-1)
                 changeLargeSprite(&snakeBody, 10);
-            if(snake->snake[i].x == snake->snake[i+1].x+1)
-                changeLargeSprite(&snakeBody, 5);
-        }
-        if(snake->snake[i].x == snake->snake[i-1].x-1){
-            if(snake->snake[i].x == snake->snake[i+1].x+1)
+            if(snake->corp[i].x == snake->corp[i+1].x+1)
+                changeLargeSprite(&snakeBody, 5);}
+        if(snake->corp[i].x == snake->corp[i-1].x-1){
+            if(snake->corp[i].x == snake->corp[i+1].x+1)
                 changeLargeSprite(&snakeBody, 3);
-            if(snake->snake[i].y == snake->snake[i+1].y-1)
+            if(snake->corp[i].y == snake->corp[i+1].y-1)
                 changeLargeSprite(&snakeBody, 11);
-            if(snake->snake[i].y == snake->snake[i+1].y+1)
-                changeLargeSprite(&snakeBody, 6);
-        }
-        if(snake->snake[i].x == snake->snake[i-1].x+1){
-            if(snake->snake[i].x == snake->snake[i+1].x-1)
+            if(snake->corp[i].y == snake->corp[i+1].y+1)
+                changeLargeSprite(&snakeBody, 6);}
+        if(snake->corp[i].x == snake->corp[i-1].x+1){
+            if(snake->corp[i].x == snake->corp[i+1].x-1)
                 changeLargeSprite(&snakeBody, 1);
-            if(snake->snake[i].y == snake->snake[i+1].y-1)
+            if(snake->corp[i].y == snake->corp[i+1].y-1)
                 changeLargeSprite(&snakeBody, 4);
-            if(snake->snake[i].y == snake->snake[i+1].y+1)
-                changeLargeSprite(&snakeBody, 9);
-        }
+            if(snake->corp[i].y == snake->corp[i+1].y+1)
+                changeLargeSprite(&snakeBody, 9);}
 
-        displayLargeSprite(screen, &snakeBody, snake->snake[i].x*TAILLESPRITE, snake->snake[i].y*TAILLESPRITE); //le corp entre
+        displayLargeSprite(screen, &snakeBody, snake->corp[i].x*TAILLESPRITE, snake->corp[i].y*TAILLESPRITE); //le corp entre la queue et la tête
     }
 
-    if(snake->snake[snake->taille-1].y == snake->snake[snake->taille-2].y+1)
+    if(snake->corp[snake->taille-1].y == snake->corp[snake->taille-2].y+1)
         changeLargeSprite(&snakeTail, 0);
-    if(snake->snake[snake->taille-1].y == snake->snake[snake->taille-2].y-1)
+    if(snake->corp[snake->taille-1].y == snake->corp[snake->taille-2].y-1)
         changeLargeSprite(&snakeTail, 2);
-    if(snake->snake[snake->taille-1].x == snake->snake[snake->taille-2].x+1)
+    if(snake->corp[snake->taille-1].x == snake->corp[snake->taille-2].x+1)
         changeLargeSprite(&snakeTail, 1);
-    if(snake->snake[snake->taille-1].x == snake->snake[snake->taille-2].x-1)
+    if(snake->corp[snake->taille-1].x == snake->corp[snake->taille-2].x-1)
         changeLargeSprite(&snakeTail, 3);
 
-    displayLargeSprite(screen, &snakeTail, snake->snake[snake->taille-1].x*TAILLESPRITE, snake->snake[snake->taille-1].y*TAILLESPRITE); //la queue
-
-
+    displayLargeSprite(screen, &snakeTail, snake->corp[snake->taille-1].x*TAILLESPRITE, snake->corp[snake->taille-1].y*TAILLESPRITE); //la queue
 
     destroyLargeSprite(&snakeHead);
     destroyLargeSprite(&snakeBody);
     destroyLargeSprite(&snakeTail);
 }
 
-//fonction de callback pour la SDL
-Uint32 deplacement_snake(Uint32 intervalle, void* temp)
+///calcule le déplacement et les collisions des 2 serpents
+void deplacement_snake(void* temp)
 {
-    Game* game = (Game*)temp;
-    game->snake.dir = game->snake.nextdir;
-    int inc_x=0, inc_y=0, i;
-    game->collision = 0;
+    Game* game = (Game*)temp;       //on converti directement le pointeur sur vide en pointeur sur Game
+    int i, j, k, nbr_serpents = 1;
 
-    //on agrandit sa taille si il doit grandir
-    if(game->snake.growWait>0){
-        game->snake.taille++;
-        game->snake.growWait--;
+    if(game->multiplayer == TRUE)
+        nbr_serpents = 2;
+
+    for(i=0;i<nbr_serpents;i++){
+
+        int inc_x=0, inc_y=0;
+
+        //les serpents changent de direction
+        game->snake[i].dir = game->snake[i].nextdir;
+
+        //on agrandit leur taille si ils doivent grandir
+        if(game->snake[i].growWait>0){
+            game->snake[i].taille++;
+            game->snake[i].growWait--;
+        }
+
+        if(game->snake[i].dir == HAUT)
+            inc_y++;
+        if(game->snake[i].dir == BAS)
+            inc_y--;
+        if(game->snake[i].dir == DROITE)
+            inc_x++;
+        if(game->snake[i].dir == GAUCHE)
+            inc_x--;
+
+        //------DEPLACEMENT_SERPENT------
+        //on décale toutes les cases d'un vers l'avant
+        for(j=game->snake[i].taille-1;j>0;j--){
+            game->snake[i].corp[j] = game->snake[i].corp[j-1];
+        }
+        //on decale sa tête
+        game->snake[i].corp[0].x+=inc_x;
+        game->snake[i].corp[0].y+=inc_y;
+
+        //depassement du cadre
+        if(game->snake[i].corp[0].x < 0)
+            game->snake[i].corp[0].x = TAILLEX-1;
+        if(game->snake[i].corp[0].x > TAILLEX-1)
+            game->snake[i].corp[0].x = 0;
+        if(game->snake[i].corp[0].y < 0)
+            game->snake[i].corp[0].y = TAILLEY-1;
+        if(game->snake[i].corp[0].y > TAILLEY-1)
+            game->snake[i].corp[0].y = 0;
+
+        //------COLLISION------
+        //on remet la collision a 0
+        game->snake[i].collision = 0;
+
+        //collision avec les murs
+        if(game->levelMap[game->snake[i].corp[0].x][game->snake[i].corp[0].y] == MUR)
+            game->snake[i].collision = 1;
+
+        //collision avec lui-même
+        for(j=3;j<=game->snake[i].taille-1;j++){ //on ne peux pas manger avant le 3eme segment, ni la queue, parce qu'elle bougera au prochain coup
+            if(game->snake[i].corp[0].x == game->snake[i].corp[j].x && game->snake[i].corp[0].y == game->snake[i].corp[j].y)
+                game->snake[i].collision = 1;  //on perd si tete collision soi meme
+        }
+
+        //collision avec les autres serpents
+        if(game->multiplayer == TRUE){
+            ///on regarde quand les serpents se touchent entre eux
+            for(k=0;k<nbr_serpents;k++){
+                if(i!=k)    //on regarde si on touche les AUTRES serpents
+                    for(j=0;j<game->snake[i].taille;j++){       //sur n'importe quel endroit du corp
+                        if(game->snake[i].corp[0].x == game->snake[k].corp[j].x && game->snake[i].corp[0].y == game->snake[k].corp[j].y)
+                            game->snake[i].collision = 1;
+                }
+            }
+        }
+
+        //fruits
+        if(game->levelMap[game->snake[i].corp[0].x][game->snake[i].corp[0].y] == FRUIT){
+            game->snake[i].collision = 2;        //on lui dit qu'il a croisé un fruit
+            game->levelMap[game->snake[i].corp[0].x][game->snake[i].corp[0].y] = VIDE; //on eneve le fruit
+        }
     }
-
-    if(game->snake.dir == HAUT)
-        inc_y++;
-    if(game->snake.dir == BAS)
-        inc_y--;
-    if(game->snake.dir == DROITE)
-        inc_x++;
-    if(game->snake.dir == GAUCHE)
-        inc_x--;
-
-    //------COLLISION------
-    if(game->levelMap[game->snake.snake[0].x+inc_x][game->snake.snake[0].y+inc_y] == MUR)
-        game->collision = 1;      //on perd si tete collision mur
-
-    for(i=3;i<=game->snake.taille-2;i++){ //on ne peux pas manger avant le 3eme segment, ni la queue, parce qu'elle bougera au prochain coup
-        if(game->snake.snake[0].x+inc_x == game->snake.snake[i].x && game->snake.snake[0].y+inc_y == game->snake.snake[i].y)
-            game->collision = 1;  //on perd si tete collision serpent
-    }
-
-    //fruits
-    if(game->levelMap[game->snake.snake[0].x+inc_x][game->snake.snake[0].y+inc_y] == FRUIT){
-        game->collision = 2;        //on lui dit qu'il a croisé un fruit
-        game->levelMap[game->snake.snake[0].x+inc_x][game->snake.snake[0].y+inc_y] = VIDE; //on eneve le fruit
-    }
-    //------COLLISION------
-
-    //------DEPLACEMENT_SERPENT------
-    for(i=game->snake.taille-1;i>0;i--){
-        game->snake.snake[i] = game->snake.snake[i-1];
-    }
-    game->snake.snake[0].x+=inc_x;
-    game->snake.snake[0].y+=inc_y;
-
-    //depassement du cadre
-    if(game->snake.snake[0].x < 0)
-        game->snake.snake[0].x = TAILLEX-1;
-    if(game->snake.snake[0].x > TAILLEX-1)
-        game->snake.snake[0].x = 0;
-    if(game->snake.snake[0].y < 0)
-        game->snake.snake[0].y = TAILLEY-1;
-    if(game->snake.snake[0].y > TAILLEY-1)
-        game->snake.snake[0].y = 0;
-    //------DEPLACEMENT_SERPENT------
-
-    return intervalle;
 }
